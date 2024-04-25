@@ -51,7 +51,7 @@ def placeAmount(amount):
     for i in range(amount):
         put_ball()
 
-def moveDiagonal(startX, startY, endX, endY):
+def drawDiagonal(startX, startY, endX, endY):
     moveToXY(startX, startY)
     deltaX = endX - startX
     deltaY = endY - startY
