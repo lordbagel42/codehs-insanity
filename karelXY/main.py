@@ -46,3 +46,27 @@ def moveToXY(targetX, targetY):
             turnLeft(2)
             heading = 0
             x = targetX
+
+def moveDiagonal(startX, startY, endX, endY):
+    moveToXY(startX, startY)
+    deltaX = endX - startX
+    deltaY = endY - startY
+    if deltaX > 0:
+        if deltaY > 0:
+            while x != endX and y != endY:
+                put_ball()
+                moveToXY(x + 1, y + 1)
+        else:
+            while x != endX and y != endY:
+                put_ball()
+                moveToXY(x + 1, y - 1)
+    else:
+        if deltaY > 0:
+            while x != endX and y != endY:
+                put_ball()
+                moveToXY(x - 1, y + 1)
+        else:
+            while x != endX and y != endY:
+                put_ball()
+                moveToXY(x - 1, y - 1)
+    put_ball()
