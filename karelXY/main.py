@@ -57,6 +57,7 @@ def drawLine(startX, startY, endX, endY):
     sx = 1 if startX < endX else -1
     sy = 1 if startY < endY else -1
     err = dx - dy
+    e2 = 2 * err
     
     while True:
         moveToXY(startX, startY)
@@ -65,10 +66,12 @@ def drawLine(startX, startY, endX, endY):
         if startX == endX and startY == endY:
             break
         
-        e2 = 2 * err
         if e2 > -dy:
             err -= dy
             startX += sx
+            e2 -= 2 * dy
+        
         if e2 < dx:
             err += dx
             startY += sy
+            e2 += 2 * dx
