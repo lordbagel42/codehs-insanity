@@ -47,6 +47,10 @@ def moveToXY(targetX, targetY):
             heading = 0
             x = targetX
 
+def placeAmount(amount):
+    for i in range(amount):
+        put_ball()
+
 def moveDiagonal(startX, startY, endX, endY):
     moveToXY(startX, startY)
     deltaX = endX - startX
