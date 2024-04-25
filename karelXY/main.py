@@ -51,26 +51,24 @@ def placeAmount(amount):
     for i in range(amount):
         put_ball()
 
-def drawDiagonal(startX, startY, endX, endY):
-    moveToXY(startX, startY)
-    deltaX = endX - startX
-    deltaY = endY - startY
-    if deltaX > 0:
-        if deltaY > 0:
-            while x != endX and y != endY:
-                put_ball()
-                moveToXY(x + 1, y + 1)
-        else:
-            while x != endX and y != endY:
-                put_ball()
-                moveToXY(x + 1, y - 1)
-    else:
-        if deltaY > 0:
-            while x != endX and y != endY:
-                put_ball()
-                moveToXY(x - 1, y + 1)
-        else:
-            while x != endX and y != endY:
-                put_ball()
-                moveToXY(x - 1, y - 1)
-    put_ball()
+def drawLine(startX, startY, endX, endY):
+    dx = abs(endX - startX)
+    dy = abs(endY - startY)
+    sx = 1 if startX < endX else -1
+    sy = 1 if startY < endY else -1
+    err = dx - dy
+    
+    while True:
+        moveToXY(startX, startY)
+        put_ball()
+        
+        if startX == endX and startY == endY:
+            break
+        
+        e2 = 2 * err
+        if e2 > -dy:
+            err -= dy
+            startX += sx
+        if e2 < dx:
+            err += dx
+            startY += sy
