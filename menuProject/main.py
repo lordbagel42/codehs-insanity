@@ -5,7 +5,7 @@ def main():
         3: ("Bacon Burger", 7.99),
         4: ("Veggie Burger", 5.99),
         5: ("Chicken Burger", 6.49),
-        6: ("Fish Burger", 6.99),
+        6: ("Fish Burger", 6.99)
     }
 
     price_fries = 1.99
